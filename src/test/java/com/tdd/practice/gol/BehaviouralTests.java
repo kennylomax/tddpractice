@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -55,4 +56,29 @@ import org.junit.jupiter.params.provider.CsvSource;
 	void testGOLEvolution(String cells, String board){
 	}   
 
+
+    @Tag("internal")
+    @Order(4)    
+    @ParameterizedTest(name = "GOL rule: a cell in state {0} with {1} live neighbours -> state {2}")
+	@CsvSource({
+		// MyState, MyLiveNeighbours, MyNextSate
+		// Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.
+		"0,3,1",
+		// Any live cell with fewer than two live neighbours dies, as if caused by underpopulation.
+		"1,0,0",
+		"1,1,0",
+		// Any live cell with two or three live neighbours lives on to the next generation.
+		"1,2,1",
+		"1,3,1",
+		// Any live cell with more than three live neighbours dies, as if by overpopulation.	
+		"1,4,0",
+		"1,5,0",
+		"1,6,0",
+		"1,7,0",
+		"1,8,0",
+		}
+	)
+	void testGOLRules(int s1, int n, int s2){
+		assertEquals(  s2, GOL.applyRuleToCell(s1,n) );
+	}
 }
