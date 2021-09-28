@@ -120,5 +120,20 @@ X, Y and their Index in Array
 		GOL gol = new GOL( edge );	
 		assertEquals(  i, gol.getIndexForXY(x,y) );
 	}
+
+
+    @Tag("internal")
+    @Order(6)    
+	@ParameterizedTest(name = "A board with edge {0} po2d should become {1}")
+	@CsvSource({
+		"3, 	'1-2-4\n8-16-32\n64-128-256\n'",
+		}
+	)
+
+	void testPo2(int edge, String board){
+		GOL gol=new GOL( edge );
+		gol.po2d();
+		assertEquals( board, gol.getBoard());
+    }
 	
 }
