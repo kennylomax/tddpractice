@@ -26,7 +26,7 @@ import org.junit.jupiter.params.provider.CsvSource;
         "3, '0-0-0\n0-0-0\n0-0-0\n'",
 		}
 	)
-	
+
     public void testFreshGOLBoards( int edge, String board){    
 		GOL gol = new GOL(edge);  
        assertEquals( board, gol.getBoard());
@@ -40,8 +40,9 @@ import org.junit.jupiter.params.provider.CsvSource;
         "3, 101 010 101,	'1-0-1\n0-1-0\n1-0-1\n'",
         "3, - 010 -,		'0-0-0\n0-1-0\n0-0-0\n'",    }
 	)
-	@Disabled("Not yet implemented")
 	void testPopulatingGOLBoards(int edge, String cells, String board){
+		GOL gol = new GOL(edge, cells);
+		assertEquals( board, gol.getBoard());
     }
 
     @Order(3)    
