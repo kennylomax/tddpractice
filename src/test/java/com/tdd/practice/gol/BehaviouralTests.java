@@ -1,5 +1,7 @@
 package com.tdd.practice.gol;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
@@ -24,8 +26,10 @@ import org.junit.jupiter.params.provider.CsvSource;
         "3, '0-0-0\n0-0-0\n0-0-0\n'",
 		}
 	)
-	@Disabled("Not yet implemented")
+	
     public void testFreshGOLBoards( int edge, String board){    
+		GOL gol = new GOL(edge);  
+       assertEquals( board, gol.getBoard());
     }
 
 	@Order(2)    
