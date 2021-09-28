@@ -52,10 +52,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 		"0000000100001000010000000, '0-0-0-0-0\n0-0-0-0-0\n0-1-1-1-0\n0-0-0-0-0\n0-0-0-0-0\n'",
 		}
 	)
-	@Disabled("Not yet implemented")
 	void testGOLEvolution(String cells, String board){
+        int edge = (int)Math.sqrt(cells.length());
+        GOL gol = new GOL(edge, cells);
+		gol=gol.evolve();
+		assertEquals(  board, gol.getBoard() );
 	}   
-
 
     @Tag("internal")
     @Order(4)    
