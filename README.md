@@ -17,4 +17,4 @@ Want to learn more?  See the TDD Learning path @ [CrowdSourcedUpskillingApp](htt
 
 Or ping ken.lomax@sap.com to join one of our TDD/Pair Programming workshops.
 
-More @ [TDD Dojos](https://wiki.wdf.sap.corp/wiki/display/prodandtech/TDD+Dojo)
+More @ [TDD Dojos](https://wiki.wdf.sap.corp/wiki/display/prodandtech/TDD+Dojos)
