@@ -61,4 +61,22 @@ public class GOL {
             c=c*2;
         }
     }
+
+    public GOL sumAllNeigbours(){
+        GOL sums = new GOL(edge);        
+        for (int x = 0;x<edge; x++)
+            for (int y=0; y<edge;y++){
+                int sum =0;                  
+                for (int a = x-1; a<=x+1; a++){
+                    for ( int b=y-1 ; b<=y+1; b++){
+                        if ( !(a==x && b==y)){
+                            sum += board[ getIndexForXY( a, b)];
+                        }
+                    }
+                    sums.board[ getIndexForXY( x, y)] = sum;
+                }
+            }
+        return sums;
+    }
+
 }
